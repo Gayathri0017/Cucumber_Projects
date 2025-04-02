@@ -43,6 +43,16 @@
     <version>7.21.1</version>
     <scope>test</scope>
 </dependency>
+<dependency>
+    <groupId>net.masterthought</groupId>
+    <artifactId>cucumber-reporting</artifactId>
+    <version>5.7.4</version>
+</dependency>
+<dependency>
+        <groupId>net.masterthought</groupId>
+        <artifactId>cucumber-reporting</artifactId>
+        <version>5.7.6</version>
+    </dependency>
   </dependencies>
   <build>
 	<plugins>
