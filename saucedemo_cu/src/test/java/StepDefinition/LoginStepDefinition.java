@@ -4,13 +4,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 public class LoginStepDefinition {
 	WebDriver driver;
-	@Given("I am in the SauceDemo Login Page")
-	public void i_am_in_the_sauce_demo_login_page() {
+	@Before
+	public void setup() {
 	    driver=new ChromeDriver();
 	    driver.get("https://www.saucedemo.com/");
 	    driver.manage().window().maximize();
@@ -77,8 +80,8 @@ public class LoginStepDefinition {
 	    String ac=err.getText();
 	    Assert.assertEquals(ex,ac);
 	}
-	@Then("Close the application")
-	public void close_the_application() {
+	@After
+	public void teardown() {
 	    driver.quit();
 	}
 }
