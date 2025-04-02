@@ -1,31 +1,17 @@
-@LoginPagee
-Feature: Login Feature
-  @validCredentials
-  Scenario: Login Feature with valid credentials
-    When User provides the valid User name
-    And User provides the valid password
-    And User clicks the login button
-    Then I should see a dashboard
-    
-  @InvalidCredentials
-  Scenario: Login Feature with Invalid credentials
-    When User does not provides the User name
-    And User provides the valid password
-    And User clicks the login button
-    Then I should see the error message
-    
-  @InvalidCredentials
-  Scenario: Login Feature with Invalid credentials
-    When User provides the valid User name
-    And User does not provide the password
-    And User clicks the login button
-    Then I should see the error messagee
-    
-  @InvalidCredentials
-  Scenario: Login Feature with Invalid credentials
-    When User provides Invalid User name
-    And User provides Invalid password
-    And User clicks the login button
-    Then I should see the error messagee3
-    
-  
+@Login
+Feature: Swag Labs Login Functionality
+  I want to login to the Swag Labs website
+
+  @chrome @ValidCredentials
+  Scenario Outline: Valid and Invalid Login
+    When I enter "<username>" as username1
+    And I enter "<password>" as password1
+    And I click on the login button1
+    Then I should <outcome>
+
+    Examples:
+      | username        | password       | outcome                                  |
+      | standard_user  | secret_sauce   | be redirected to the products pagee       |
+      |                | secret_sauce   | see an error messagee                     |
+      | standard_user  |                | see an error message in password fieldd   |
+      | standard       | 1234           | see an error message in both fieldsd      |
